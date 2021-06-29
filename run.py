@@ -20,7 +20,7 @@ def main(args):
         sys.stderr.write('Error: cannot find Snakefile at {}\n'.format(snakefile))
         sys.exit(-1)
 
-     # run!!
+     # run
     status = snakemake.snakemake(snakefile, configfiles=[args.configfile],
                                  targets=[args.workflow],
                                  forceall=args.forceall,
@@ -33,12 +33,6 @@ def main(args):
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Python executable for Snakemake workflows', usage='''./run.py -w workflow -other_argument -c config.json(yaml) -q X
-             ____
-            / . .\\                 
-            \    ---< "Snake crawls... Snakemake workflows"
-             \  /
-   __________/ /
--=:___________/
      ''')
 
     parser.add_argument('-n', '--dry-run', action='store_true', help='-run Snakemake in dry-run mode')
