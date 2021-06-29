@@ -43,7 +43,7 @@ rule Meqc:
     message:
         "Running MeQC. Creating '{output}' from '{input.samstats}' and '{input.bedstats}'."
     shell:
-        "scripts/MEQC.R 1,2,3,5,10,20,30,50,100,500,1000,5000 {output} {input.samstats} {input.bedstats}"
+        "scripts/MEQC.R {output} {input.samstats} {input.bedstats}"
 
 ## Bedtools CoverageBed ##
 rule bedtools_CoverageBed:
@@ -73,4 +73,4 @@ rule iCoverage:
     message:
         "Running iCoverage. Creating '{output}' from '{input}'."
     shell:
-        "python3 scripts/icoverage.py -c {input} -t 30 -o {output}"
+        "python3 scripts/icoverage.py -c {input} -o {output}"
