@@ -9,8 +9,6 @@ icov: True
 ## Path of the samples
 samples:
   #dicitura: nome: path/to/nome (nel path avrà formato "nome_unit.fastq.gz")
-  #pensare a includere L001 nelle units
-
 
 ## Path of the reference genome
 reference: ""
@@ -19,7 +17,7 @@ reference: ""
 bed: ""
 
 ## Path of the filtered genome file 
-filtered: "" #cerca hg19_ucsc_filtered_genomeFile.txt
+filtered: "" 
 
 ## Path of the reference genome dictionary
 dict: ""
@@ -53,8 +51,8 @@ FastQC:
 
 bwaMem:
   params:
-    sort: "samtools" # Can be 'none', 'samtools' or 'picard'.
-    sort_order: "coordinate"  # Can be 'queryname' or 'coordinate'.
+    sort: "" # Can be 'none', 'samtools' or 'picard'.
+    sort_order: ""  # Can be 'queryname' or 'coordinate'.
     sort_extra:  "" # Extra args for samtools/picard.
 
 picard_AddOrReplaceGroups:
@@ -112,10 +110,10 @@ gatk_FilterVariants:
   indels:
     filters: {""}
 
-#snpeff_Annotate:
-#   params:
-#     extra: ""
-#     java_opts: "" 
+snpeff_Annotate:
+   params:
+     extra: ""
+     java_opts: "" 
 
 snpsift_Annotate:
   params:
