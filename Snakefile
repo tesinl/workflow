@@ -15,7 +15,7 @@ if config["icov"]==True:
 ## Target rules ##  ## Workflow options ##
 rule cohort:
     input:
-        expand(fastqc_output, sample=config["samples"], num=['1', '2']), #cambia con unit=["R1", "R2"]
+        expand(fastqc_output, sample=config["samples"], num=['1', '2']),
         expand(meqc_output, sample=config["samples"]),
         expand(icov_output, sample=config["samples"]),
         "results/csvfile/all.csv"
