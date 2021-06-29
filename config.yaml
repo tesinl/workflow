@@ -36,8 +36,8 @@ dbsnp: ""
 
 ## Extra Softwares Paths ##
 
-java_path: "/home/n.liorni/Snakemake_loc_DnaSeq_Analysis_Pipeline/.snakemake/conda/783a7dbb/bin/java"
-snpsift_path: "/home/n.liorni/Snakemake_loc_DnaSeq_Analysis_Pipeline/.snakemake/conda/783a7dbb/share/snpsift-4.3.1t-3/SnpSift.jar"
+java_path: ""
+snpsift_path: ""
 
 ## Tools Parameters ##
 
@@ -58,14 +58,14 @@ bwaMem:
     sort_extra:  "" # Extra args for samtools/picard.
 
 picard_AddOrReplaceGroups:
-  params: "VALIDATION_STRINGENCY=LENIENT RGLB=lib1 RGPL=ILLUMINA RGPU=unit1 RGSM=20"
+  params: ""
 
 # the bed file path must be hard coded
 samtools_View:
-  params: "-b -h -L ../workflow_data/bed/slc2a1_and_antisense_hg19.bed"
+  params: ""
 
 picard_MarkDuplicates:
-  params: "ASSUME_SORTED=true REMOVE_DUPLICATES=false"
+  params: ""
 
 gatk_BaseRecalibrator:
   params:
@@ -79,16 +79,16 @@ gatk_ApplyBQSR:
 
 picard_Sortsam:
   params:
-    sort_order: "coordinate"
-    extra: "VALIDATION_STRINGENCY=LENIENT"
+    sort_order: ""
+    extra: ""
 
 samtools_Index: 
   params: "" 
 
 gatk_HaplotypeCaller:
   params:
-    java_opts: "-Xmx16G" 
-    extra: "--standard-min-confidence-threshold-for-calling 10.0 --sample-ploidy 2 --dont-use-soft-clipped-bases"
+    java_opts: "" 
+    extra: ""
 
 gatk_CombineGvcfs:
   params:
@@ -97,20 +97,20 @@ gatk_CombineGvcfs:
 
 gatk_GenotypeGvcfs:
   params:
-    extra: "--standard-min-confidence-threshold-for-calling 10.0 --sample-ploidy 2" # optional
-    java_opts: "-Xmx4g" 
+    extra: "" 
+    java_opts: "" 
 
 gatk_SelectVariants:
   snps:
-    extra: "--select-type-to-include SNP --select-type-to-include MNP"
+    extra: ""
   indel:
-    extra: "--select-type-to-include INDEL --select-type-to-include MIXED"
+    extra: ""
 
 gatk_FilterVariants:
   snps:
-    filters: {"myfilter": "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0"}
+    filters: {""}
   indels:
-    filters: {"myfilter": "QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0"}
+    filters: {""}
 
 #snpeff_Annotate:
 #   params:
@@ -119,21 +119,21 @@ gatk_FilterVariants:
 
 snpsift_Annotate:
   params:
-    java_opts: "-Xmx50G"
+    java_opts: ""
     extra: ""
 
 snpsift_VarType:
   params:
-    java_opts: "-Xmx50G"
+    java_opts: ""
     extra: ""
 
 snpsift_dbNSFP:
   params:
-    java_opts: "-Xmx50G"
-    extra: "-n " # -n annota tutti i fields tranne quelli specificati con -f, -g dovrebbe indicare la versione del genoma
+    java_opts: ""
+    extra: "-n " # -n annota tutti i fields tranne quelli specificati con -f, -g versione del genoma
 
 extractFields:
-  path: "/home/n.liorni/.conda/envs/Snakemake/bin/SnpSift"
+  path: ""
 
   
 
